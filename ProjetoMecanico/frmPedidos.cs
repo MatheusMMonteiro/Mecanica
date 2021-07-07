@@ -24,6 +24,7 @@ namespace ProjetoMecanico
                 cboSituacao.DisplayMember = "Situacao";
                 cboSituacao.ValueMember = "SituacaoId";
                 cboSituacao.SelectedIndex = -1;
+                pedidos.SituacaoId = Convert.ToInt32(cboSituacao.SelectedIndex);
             }
             catch (Exception ex)
             {
@@ -54,7 +55,7 @@ namespace ProjetoMecanico
         {
             try
             {
-                pedidos.SituacaoId = Convert.ToInt32(cboSituacao.SelectedIndex);
+                
                 grdPedidos.DataSource = pedidos.Consultar();
 
                 foreach(DataGridViewColumn p in grdPedidos.Columns)
@@ -83,7 +84,7 @@ namespace ProjetoMecanico
         private void grdPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             frmAtendimentoPedidos frm = new frmAtendimentoPedidos();
-            frm.txtNumeroPedido.Text = grdPedidos.SelectedRows[0].Cells[0].Value.ToString();
+            //frm.txtNumeroPedido.Text = grdPedidos.SelectedRows[0].Cells[0].Value.ToString();
             frm.ShowDialog();
         }
 
@@ -96,18 +97,12 @@ namespace ProjetoMecanico
 
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
-            cliente = new Cliente();
-            if (rdbNome.Checked)
+           if (rdbPedido.Checked)
             {
-                cliente.Nome = txtPesquisar.Text;
-                CarregarGrid();
+              pedidos.PedidoId =Convert.ToInt16(txtPesquisar.Text);
+                CarregarGrid();               
             }
-            else if (rdbPedido.Checked)
-            {/*
-                pedidos.PedidoId =txtPesquisar.ToString();
-                CarregarGrid();*/                
-            }
-            return;
+                
         }
 
         private void cboSituacao_SelectedIndexChanged(object sender, EventArgs e)

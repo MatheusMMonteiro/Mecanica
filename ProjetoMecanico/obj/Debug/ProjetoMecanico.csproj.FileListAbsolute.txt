@@ -40,3 +40,17 @@ C:\Users\matheus\Desktop\ProjetoMecanico\ProjetoMecanico\obj\Debug\ProjetoMecani
 C:\Users\matheus\Desktop\ProjetoMecanico\ProjetoMecanico\obj\Debug\ProjetoMecanico.exe
 C:\Users\matheus\Desktop\ProjetoMecanico\ProjetoMecanico\obj\Debug\ProjetoMecanico.pdb
 C:\Users\matheus\Desktop\ProjetoMecanico\ProjetoMecanico\obj\Debug\ProjetoMecanico.frmCadastro.resources
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\bin\Debug\ProjetoMecanico.exe.config
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\bin\Debug\ProjetoMecanico.exe
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\bin\Debug\ProjetoMecanico.pdb
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.csprojAssemblyReference.cache
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.frmCadastro.resources
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.frmPedidos.resources
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.frmLogin.resources
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.frmAtendimentoPedidos.resources
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.frmRedefinirSenha.resources
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.Properties.Resources.resources
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.csproj.GenerateResource.cache
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.csproj.CoreCompileInputs.cache
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.exe
+C:\Users\matheus\Desktop\ProjetoMecanica-master\ProjetoMecanico\obj\Debug\ProjetoMecanico.pdb

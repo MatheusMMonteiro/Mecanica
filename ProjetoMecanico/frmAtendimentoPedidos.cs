@@ -19,21 +19,36 @@ namespace ProjetoMecanico
         
         Cliente cliente = new Cliente();
         Pedidos pedidos = new Pedidos();
+        Veiculo veiculo = new Veiculo();
         
         private void PreencherPedido()
         {
             try
             {
-                pedidos.PedidoId = Convert.ToInt32(txtNumeroPedido.Text);
+                pedidos.PedidoId = 2;
                 pedidos.Consultar();
+                pedidos.PedidoId.ToString();
                 cliente.ClienteId = pedidos.ClienteId;
                 cliente.Consultar();
 
+                veiculo.ClienteId = pedidos.ClienteId;
+                veiculo.ConsultarVeiculo();
+
+                veiculo.ConsultarModelo();
+                txtModelo.Text = veiculo.Modelo;
+
+                veiculo.ConsultarMarca();
+                txtMarca.Text = veiculo.Marca; 
+
+                
+                
                 txtNomeCliente.Text = cliente.Nome;
                 txtData.Text = cliente.DataNascimento.ToString();
-                /*txtMarca.Text = Global.ConsultarMarca();
-                txtModelo.Text = Global.ConsultarModelo();*/
+                
+
+                //txtModelo.Text = Global.ConsultarModelo().ToString();
                 txtOcorrencia.Text = pedidos.Ocorrencia;
+                txtNumeroPedido.Text = pedidos.PedidoId.ToString();
 
             }
             catch (Exception ex)

@@ -70,12 +70,18 @@ namespace ProjetoMecanico
                 txtUsuario.Text = Global.NomeUsuario;
                 btnReenviar.PerformClick();
             }
+            
         }
 
 
         private void btnReenviar_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void btnConfirmarCodigo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

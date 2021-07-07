@@ -163,6 +163,7 @@ namespace ProjetoMecanico
             this.btnConfirmarCodigo.Text = "Confirmar Código";
             this.btnConfirmarCodigo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfirmarCodigo.UseVisualStyleBackColor = false;
+            this.btnConfirmarCodigo.Click += new System.EventHandler(this.btnConfirmarCodigo_Click);
             // 
             // frmRedefinirSenha
             // 

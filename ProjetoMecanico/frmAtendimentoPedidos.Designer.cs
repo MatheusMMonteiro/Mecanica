@@ -74,6 +74,7 @@ namespace ProjetoMecanico
             // 
             // txtNumeroPedido
             // 
+            this.txtNumeroPedido.Enabled = false;
             this.txtNumeroPedido.Location = new System.Drawing.Point(430, 47);
             this.txtNumeroPedido.Name = "txtNumeroPedido";
             this.txtNumeroPedido.ReadOnly = true;
@@ -91,6 +92,7 @@ namespace ProjetoMecanico
             // 
             // txtModelo
             // 
+            this.txtModelo.Enabled = false;
             this.txtModelo.Location = new System.Drawing.Point(213, 47);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.ReadOnly = true;
@@ -108,6 +110,7 @@ namespace ProjetoMecanico
             // 
             // txtMarca
             // 
+            this.txtMarca.Enabled = false;
             this.txtMarca.Location = new System.Drawing.Point(49, 47);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.ReadOnly = true;
@@ -125,6 +128,7 @@ namespace ProjetoMecanico
             // 
             // txtData
             // 
+            this.txtData.Enabled = false;
             this.txtData.Location = new System.Drawing.Point(440, 17);
             this.txtData.Name = "txtData";
             this.txtData.ReadOnly = true;
@@ -142,6 +146,7 @@ namespace ProjetoMecanico
             // 
             // txtNomeCliente
             // 
+            this.txtNomeCliente.Enabled = false;
             this.txtNomeCliente.Location = new System.Drawing.Point(98, 17);
             this.txtNomeCliente.Name = "txtNomeCliente";
             this.txtNomeCliente.ReadOnly = true;
@@ -159,11 +164,12 @@ namespace ProjetoMecanico
             // 
             // txtOcorrencia
             // 
-            this.txtOcorrencia.Location = new System.Drawing.Point(2, 19);
+            this.txtOcorrencia.Enabled = false;
+            this.txtOcorrencia.Location = new System.Drawing.Point(6, 19);
             this.txtOcorrencia.Multiline = true;
             this.txtOcorrencia.Name = "txtOcorrencia";
             this.txtOcorrencia.ReadOnly = true;
-            this.txtOcorrencia.Size = new System.Drawing.Size(506, 152);
+            this.txtOcorrencia.Size = new System.Drawing.Size(502, 152);
             this.txtOcorrencia.TabIndex = 10;
             // 
             // grpOcorrencia
@@ -211,6 +217,7 @@ namespace ProjetoMecanico
             // btnCancelarOcorrencia
             // 
             this.btnCancelarOcorrencia.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCancelarOcorrencia.Enabled = false;
             this.btnCancelarOcorrencia.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelarOcorrencia.Image = global::ProjetoMecanico.Properties.Resources.form_blue_delete;
             this.btnCancelarOcorrencia.Location = new System.Drawing.Point(275, 285);
@@ -224,6 +231,7 @@ namespace ProjetoMecanico
             // btnEncerrarOcorrencia
             // 
             this.btnEncerrarOcorrencia.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnEncerrarOcorrencia.Enabled = false;
             this.btnEncerrarOcorrencia.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEncerrarOcorrencia.Image = global::ProjetoMecanico.Properties.Resources.Sem_Título___1;
             this.btnEncerrarOcorrencia.Location = new System.Drawing.Point(144, 285);

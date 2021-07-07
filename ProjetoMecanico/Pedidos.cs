@@ -76,6 +76,19 @@ namespace ProjetoMecanico
             }
             return dataTable;                          
         }
+        public void ResponderOcorrencia()
+        {
+            try
+            {
+               
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+        }
         public void Gravar()
         {
             try

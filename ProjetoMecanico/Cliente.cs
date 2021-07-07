@@ -54,7 +54,7 @@ namespace ProjetoMecanico
 
                 if (ClienteId != 0)
                 {
-                    sql = "where clienteId = @ClienteId";
+                    sql += "where clienteId = @ClienteId";
                     variaveis.Add(new SqlParameter("@ClienteId", ClienteId));
                 }
                 else if (Nome != string.Empty)
