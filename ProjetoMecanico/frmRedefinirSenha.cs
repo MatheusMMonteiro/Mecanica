@@ -72,10 +72,20 @@ namespace ProjetoMecanico
             }
             
         }
-
+        
 
         private void btnReenviar_Click(object sender, EventArgs e)
-        {
+        {            
+            CodigoSenha cod = new CodigoSenha();
+            Usuario usr = new Usuario();
+
+            usr.Usr = txtUsuario.Text;
+            usr.Consultar();
+            
+            cod.UsuarioId = usr.UsuarioId;
+            cod.GerarCodigo();
+            cod.GravarCodigo();
+
             
         }
 

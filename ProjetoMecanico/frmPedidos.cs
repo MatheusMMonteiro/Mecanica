@@ -23,8 +23,7 @@ namespace ProjetoMecanico
                 cboSituacao.DataSource = Global.ConsultarSituacao();
                 cboSituacao.DisplayMember = "Situacao";
                 cboSituacao.ValueMember = "SituacaoId";
-                cboSituacao.SelectedIndex = -1;
-                pedidos.SituacaoId = Convert.ToInt32(cboSituacao.SelectedIndex);
+                cboSituacao.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
@@ -55,10 +54,12 @@ namespace ProjetoMecanico
         {
             try
             {
-                
-                grdPedidos.DataSource = pedidos.Consultar();
 
-                foreach(DataGridViewColumn p in grdPedidos.Columns)
+                pedidos.SituacaoId = Convert.ToInt32(cboSituacao.SelectedIndex);
+                grdPedidos.DataSource = pedidos.Consultar();
+               
+
+                foreach (DataGridViewColumn p in grdPedidos.Columns)
                 {
                     p.Visible = false;
                 }
@@ -97,10 +98,11 @@ namespace ProjetoMecanico
 
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
-           if (rdbPedido.Checked)
-            {
-              pedidos.PedidoId =Convert.ToInt16(txtPesquisar.Text);
-                CarregarGrid();               
+           if (rdbPedido.Checked && txtPesquisar.Text.Length>0)
+            {                
+                pedidos.PedidoId =Convert.ToInt16(txtPesquisar.Text);
+                CarregarGrid();
+                           
             }
                 
         }
@@ -108,6 +110,19 @@ namespace ProjetoMecanico
         private void cboSituacao_SelectedIndexChanged(object sender, EventArgs e)
         {
             CarregarGrid();
+        }
+
+        private void rdbPedido_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

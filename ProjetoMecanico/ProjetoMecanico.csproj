@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AcessoBD.cs" />
     <Compile Include="Cliente.cs" />
+    <Compile Include="CodigoSenha.cs" />
     <Compile Include="frmCadastro.cs">
       <SubType>Form</SubType>
     </Compile>

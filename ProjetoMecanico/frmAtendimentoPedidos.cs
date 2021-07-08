@@ -66,7 +66,8 @@ namespace ProjetoMecanico
         private void btnResponderOcorrencia_Click(object sender, EventArgs e)
         {
             frmAtendimentoPedidos frm = new frmAtendimentoPedidos();
-            frm.Size = new Size(549, 605);           
+            frm.Size = new Size(549, 605);
+           
 
         }
 

@@ -73,6 +73,7 @@ namespace ProjetoMecanico
             this.txtPesquisar.Size = new System.Drawing.Size(150, 20);
             this.txtPesquisar.TabIndex = 3;
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
+            this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             // 
             // rdbNome
             // 
@@ -95,6 +96,7 @@ namespace ProjetoMecanico
             this.rdbPedido.TabIndex = 5;
             this.rdbPedido.Text = "Pedido";
             this.rdbPedido.UseVisualStyleBackColor = true;
+            this.rdbPedido.CheckedChanged += new System.EventHandler(this.rdbPedido_CheckedChanged);
             // 
             // grdPedidos
             // 

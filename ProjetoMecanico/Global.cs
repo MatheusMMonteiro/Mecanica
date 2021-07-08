@@ -75,6 +75,7 @@ namespace ProjetoMecanico
         {
             DataTable dataTable = new DataTable();
             AcessoBD acesso = new AcessoBD();
+
             try
             {
                 string sql = "select PerfilId, Perfil from tblPerfil \n";
@@ -87,56 +88,8 @@ namespace ProjetoMecanico
             }
             return dataTable;
         }
-        public static DataTable ConsultarMarca()
-        {
-            DataTable dataTable = new DataTable();
-            AcessoBD acesso = new AcessoBD();
-            try
-            {
-                string sql = "select MarcaId, Marca from tblMarca \n";
-                dataTable = acesso.Consultar(sql, new List<SqlParameter>());
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
-            return dataTable;
-        }
-        public static int  ConsultarMarcas(int MarcaId)
-        {
-            DataTable dataTable = new DataTable();
-            AcessoBD acesso = new AcessoBD();
-            List<SqlParameter> variaveis = new List<SqlParameter>();
-            try
-            {
-                string sql = "select MarcaId from tblmodelo where MarcaId = @MarcaId";
-                variaveis.Add(new SqlParameter("@MarcaId",MarcaId));
-
-                return Convert.ToInt32(acesso.Executar(variaveis, sql));
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
-        }
-        public static DataTable ConsultarModelo()
-        {
-            DataTable dataTable = new DataTable();
-            AcessoBD acesso = new AcessoBD();
-            try
-            {
-                string sql = "select ModeloId, Modelo from tblmodelo \n";
-                dataTable = acesso.Consultar(sql, new List<SqlParameter>());
-            }
-            catch (Exception ex)
-            {
-
-                throw new Exception(ex.Message);
-            }
-            return dataTable;
-        }
+        
+        
         
 
         public static void EnviarEmailOcorrencia(string EnderecoEmail, string Ocorrencia, string Pedido)

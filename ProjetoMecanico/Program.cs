@@ -18,7 +18,7 @@ namespace ProjetoMecanico
             Global.LerAppConfig();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPedidos());
+            Application.Run(new frmRedefinirSenha());
             
 
         }
