@@ -17,23 +17,19 @@ namespace ProjetoMecanico
         public frmRedefinirSenha()
         {
             InitializeComponent();
-        }  
-        public string usuario { get; set; }
+        }        
+        public int IdUsuario { get; set; }
         
         private bool ValidarPreenchimento()
         {
             string mensagemErro = string.Empty;
             try
             {
-                if (txtUsuario.Text == string.Empty)
+                if (!txtCodigo.Enabled)
                 {
-                    mensagemErro = "Preencha o campo Usuário.\n";
+                    mensagemErro = "Confirme o Código de Preenchimento.\n";
                 }
-                if (txtCodigo.Text == string.Empty)
-                {
-                    mensagemErro += "Preencha o campo Codigo.\n";
-                }                
-                if (txtSenha.Text == string.Empty)
+                else if (txtSenha.Text == string.Empty)
                 {
                     mensagemErro += "Prencha o campo senha.\n";
                 }
@@ -44,7 +40,7 @@ namespace ProjetoMecanico
                 if (mensagemErro != string.Empty)
                 {
                     MessageBox.Show(mensagemErro, "Redefinir Senha",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);                    
                 }
             }
             catch (Exception ex)
@@ -57,6 +53,14 @@ namespace ProjetoMecanico
         private void btnGravar_Click(object sender, EventArgs e)
         {
             ValidarPreenchimento();
+            Usuario usr = new Usuario();
+            usr.Usr = txtUsuario.Text;
+            usr.Consultar();
+            usr.Senha = Global.CriptografarSenha(txtSenha.Text);
+            
+            usr.Gravar();
+            MessageBox.Show("Dados alterados com Sucesso!", "Redefinir Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -75,23 +79,64 @@ namespace ProjetoMecanico
         
 
         private void btnReenviar_Click(object sender, EventArgs e)
-        {            
+        {
             CodigoSenha cod = new CodigoSenha();
             Usuario usr = new Usuario();
+            if (txtUsuario.Text == string.Empty)
+            {
+                MessageBox.Show("Preencha o Campo Usuario", "Erro de Preenchimento",  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             usr.Usr = txtUsuario.Text;
             usr.Consultar();
-            
+            if (!usr.Autenticar())
+            {
+                MessageBox.Show("Usuario inválido!", "Erro de Preenchimento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            txtUsuario.Enabled = false;
+
             cod.UsuarioId = usr.UsuarioId;
             cod.GerarCodigo();
             cod.GravarCodigo();
-
             
+            //Enviar Email
+            string email = usr.Email;
+            string codigo = cod.Codigo;
+            Global.EnviarEmailCodigo(email, codigo);
+
+            MessageBox.Show("Código Enviado com Sucesso! \br Verifique seu E-mail!", "Redefinir Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtCodigo.Enabled = true;            
         }
 
         private void btnConfirmarCodigo_Click(object sender, EventArgs e)
         {
+            string mensagemErro = string.Empty;
+            CodigoSenha cod = new CodigoSenha();
+            Usuario usr = new Usuario();
+            usr.Usr = txtUsuario.Text;
+            usr.Consultar();
+            cod.UsuarioId = usr.UsuarioId;
+            cod.Consultar();
+            string codigo = cod.Codigo;
 
+            if (txtCodigo.Text == string.Empty)
+            {
+                mensagemErro = "Preencha o Campo Código";
+            }
+            if (txtCodigo.Text != codigo)
+            {
+                mensagemErro += "Código inválido!";
+            }
+            if (mensagemErro != string.Empty)
+            {
+                MessageBox.Show(mensagemErro, "Erro de Preenchimento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Código Confirmado com Sucesso", "Redefinir Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtSenha.Enabled = true;
+            txtConfirmar.Enabled = true;
         }
     }
 }

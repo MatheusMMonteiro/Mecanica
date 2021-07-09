@@ -88,6 +88,7 @@ namespace ProjetoMecanico
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(58, 31);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(190, 20);
@@ -95,17 +96,21 @@ namespace ProjetoMecanico
             // 
             // txtSenha
             // 
+            this.txtSenha.Enabled = false;
             this.txtSenha.Location = new System.Drawing.Point(58, 123);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(190, 20);
             this.txtSenha.TabIndex = 6;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // txtConfirmar
             // 
+            this.txtConfirmar.Enabled = false;
             this.txtConfirmar.Location = new System.Drawing.Point(58, 157);
             this.txtConfirmar.Name = "txtConfirmar";
             this.txtConfirmar.Size = new System.Drawing.Size(190, 20);
             this.txtConfirmar.TabIndex = 7;
+            this.txtConfirmar.UseSystemPasswordChar = true;
             // 
             // btnCancelar
             // 

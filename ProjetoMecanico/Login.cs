@@ -33,6 +33,12 @@ namespace ProjetoMecanico
             {
                 if (usuario.Autenticar())
                 {
+                    if (usuario.PerfilId == 3)
+                    {
+                        MessageBox.Show("Acesso restrito!\nSomente a Funcionários!", "Permissão Negada",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        this.Close();
+                    }
                     MessageBox.Show("Login efetuado com sucesso",
                         "Login",
                         MessageBoxButtons.OK,
@@ -41,8 +47,28 @@ namespace ProjetoMecanico
                     this.DialogResult = DialogResult.OK;
                     Global.UsuarioLogadoId = usuario.UsuarioId;
                     Global.UsuarioLogadoNome = usuario.Nome;
+                    usuario.Consultar();
 
-                    this.Close();
+                   
+                    if (usuario.PerfilId == 1)
+                    {
+                        if(MessageBox.Show("Deseja continuar como Administrador?", this.Text, MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.No)
+                        {
+                            frmPedidos frm = new frmPedidos();
+                            frm.ShowDialog();
+                        }
+                        else
+                        {
+                            frmCadastro frm = new frmCadastro();
+                            frm.ShowDialog();
+                        }
+                    }
+                    else
+                    {
+                        frmPedidos frm = new frmPedidos();
+                        frm.ShowDialog();
+                    }
                 }
                 else
                 {
@@ -52,7 +78,7 @@ namespace ProjetoMecanico
                         MessageBoxIcon.Error);
                     txtUsuario.Focus();
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -62,7 +88,7 @@ namespace ProjetoMecanico
                     MessageBoxIcon.Error);
             }
         }
-        
+
 
         private void btnEsqueceuSenha_Click(object sender, EventArgs e)
         {
@@ -72,7 +98,7 @@ namespace ProjetoMecanico
             }
             frmRedefinirSenha frm = new frmRedefinirSenha();
             frm.ShowDialog();
-            
+
 
         }
 

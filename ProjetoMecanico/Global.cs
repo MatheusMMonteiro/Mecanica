@@ -107,13 +107,29 @@ namespace ProjetoMecanico
 
             smtp.EnableSsl = true;
             smtp.Send(email);
+        }
+        public static void EnviarEmailCodigo(string EnderecoEmail, string Codigo)
+        {
+            MailMessage email = new MailMessage();
+            email.From = new MailAddress("atendimento.mecanicatresirmaos@gmail.com");
+            email.To.Add(EnderecoEmail);
+
+            email.Subject = "Recuperação de Senha de Acesso";
+            email.Body = "Seu token de acesso é:"+Codigo;
+
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new NetworkCredential("atendimento.mecanicatresirmaos@gmail.com", "mecanica123");
+
+            smtp.EnableSsl = true;
+            smtp.Send(email);
 
 
         }
 
-       
 
-        
-        
+
+
+
     }
 }

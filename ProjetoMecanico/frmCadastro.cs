@@ -13,7 +13,7 @@ namespace ProjetoMecanico
 {
     public partial class frmCadastro : Form
     {
-        Usuario usuario;
+        Usuario usuario = new Usuario();
         public frmCadastro()
         {
             InitializeComponent();
@@ -120,7 +120,8 @@ namespace ProjetoMecanico
         {
             try
             {
-                grdPesquisa.DataSource = cliente.Consultar();
+                usuario.UsuarioId = cliente.UsuarioId;
+                grdPesquisa.DataSource = usuario.Consultar();
 
                 foreach (DataGridViewColumn c in grdPesquisa.Columns)
                 {
@@ -129,12 +130,12 @@ namespace ProjetoMecanico
                 grdPesquisa.Columns[1].Visible = true;
                 grdPesquisa.Columns[2].Visible = true;
                 grdPesquisa.Columns[3].Visible = true;
-                grdPesquisa.Columns[16].Visible = true;
+                grdPesquisa.Columns[6].Visible = true;
 
                 grdPesquisa.Columns[1].Width = 100;
                 grdPesquisa.Columns[2].Width = 255;
                 grdPesquisa.Columns[3].Width = 255;
-                grdPesquisa.Columns[16].Width = 258;
+                grdPesquisa.Columns[6].Width = 258;
             }
             catch (Exception ex)
             {
@@ -167,7 +168,7 @@ namespace ProjetoMecanico
 
                 txtNome.Text = usuario.Nome;
                 txtUsuario.Text = usuario.Usr;
-                txtSenha.Text = usuario.Senha;
+                txtSenha.Text =  usuario.Senha;
                 txtConfirmar.Text = usuario.Senha;
                 if (usuario.Ativo)
                 {
@@ -183,6 +184,7 @@ namespace ProjetoMecanico
                 MessageBox.Show("Erro--> " + ex.Message, "Cadastro de Usuários",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            CarregarGrid();
         }
 
         private void frmCadastro_Load(object sender, EventArgs e)

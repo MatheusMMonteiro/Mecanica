@@ -81,7 +81,9 @@ namespace ProjetoMecanico
             this.grdPesquisa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdPesquisa.Location = new System.Drawing.Point(9, 45);
             this.grdPesquisa.Name = "grdPesquisa";
+            this.grdPesquisa.ReadOnly = true;
             this.grdPesquisa.RowHeadersVisible = false;
+            this.grdPesquisa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdPesquisa.Size = new System.Drawing.Size(477, 176);
             this.grdPesquisa.TabIndex = 4;
             this.grdPesquisa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPesquisa_CellContentClick);

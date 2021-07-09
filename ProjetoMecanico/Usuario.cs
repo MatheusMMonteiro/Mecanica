@@ -121,7 +121,7 @@ namespace ProjetoMecanico
                 if (UsuarioId == 0)
                 {
                     sql = "insert into tblUsuario (Nome, Usuario, Senha, Email, Ativo, PerfilId)\n";
-                    sql += "values (@nome, @usuario, @senha, @Email, @ativo, @PerfilId)";
+                    sql += "values (@nome, @usuario, @senha, @Email, @ativo, @perfilId)";
                 }
                 else
                 {
@@ -130,8 +130,8 @@ namespace ProjetoMecanico
                     sql += "Usuario = @usuario,\n";
                     sql += "Senha = @senha, \n";
                     sql += "Email = @Email, \n";
-                    sql += "Ativo = @ativo \n";
-                    sql += "PerfilId = @PerfilId, \n";
+                    sql += "Ativo = @ativo, \n";
+                    sql += "PerfilId = @perfilId \n";
                     sql += "where UsuarioId = @usuarioId";
                     variaveis.Add(new SqlParameter("@usuarioId", UsuarioId));
                 }
@@ -141,7 +141,7 @@ namespace ProjetoMecanico
                 variaveis.Add(new SqlParameter("@senha", Senha));
                 variaveis.Add(new SqlParameter("@email", Email));
                 variaveis.Add(new SqlParameter("@ativo", Ativo));
-                variaveis.Add(new SqlParameter("@PerfilId", PerfilId));
+                variaveis.Add(new SqlParameter("@perfilId", PerfilId));
 
 
                 acesso.Executar(sql, variaveis);
