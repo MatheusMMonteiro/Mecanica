@@ -86,6 +86,7 @@ namespace ProjetoMecanico
             this.rdbNome.TabStop = true;
             this.rdbNome.Text = "Nome";
             this.rdbNome.UseVisualStyleBackColor = true;
+            this.rdbNome.CheckedChanged += new System.EventHandler(this.rdbNome_CheckedChanged);
             // 
             // rdbPedido
             // 
@@ -113,6 +114,7 @@ namespace ProjetoMecanico
             this.grdPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdPedidos.Size = new System.Drawing.Size(331, 351);
             this.grdPedidos.TabIndex = 6;
+            this.grdPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPedidos_CellContentClick);
             this.grdPedidos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPedidos_CellDoubleClick);
             // 
             // frmPedidos

@@ -133,9 +133,9 @@ namespace ProjetoMecanico
                 grdPesquisa.Columns[6].Visible = true;
 
                 grdPesquisa.Columns[1].Width = 100;
-                grdPesquisa.Columns[2].Width = 255;
-                grdPesquisa.Columns[3].Width = 255;
-                grdPesquisa.Columns[6].Width = 258;
+                grdPesquisa.Columns[2].Width = 200;
+                grdPesquisa.Columns[3].Width = 100;
+                grdPesquisa.Columns[6].Width = 74;
             }
             catch (Exception ex)
             {
@@ -184,11 +184,11 @@ namespace ProjetoMecanico
                 MessageBox.Show("Erro--> " + ex.Message, "Cadastro de Usuários",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            CarregarGrid();
         }
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
+            usuario = new Usuario();
             CarregarPerfil();
             CarregarGrid();
         }

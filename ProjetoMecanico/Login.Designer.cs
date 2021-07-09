@@ -128,6 +128,7 @@ namespace ProjetoMecanico
             this.Controls.Add(this.lblSenha);
             this.Controls.Add(this.lblUsuario);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";

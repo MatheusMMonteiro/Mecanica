@@ -333,6 +333,7 @@ namespace ProjetoMecanico
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.grpDadosCadastro);
             this.Controls.Add(this.grpDadosPesquisa);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCadastro";

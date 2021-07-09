@@ -20,12 +20,13 @@ namespace ProjetoMecanico
         Cliente cliente = new Cliente();
         Pedidos pedidos = new Pedidos();
         Veiculo veiculo = new Veiculo();
+        Usuario usuario = new Usuario();
         
         private void PreencherPedido()
         {
             try
             {
-                pedidos.PedidoId = 2;
+                pedidos.PedidoId = Global.NumeroPedido;
                 pedidos.Consultar();
                 pedidos.PedidoId.ToString();
                 cliente.ClienteId = pedidos.ClienteId;
@@ -38,15 +39,14 @@ namespace ProjetoMecanico
                 txtModelo.Text = veiculo.Modelo;
 
                 veiculo.ConsultarMarca();
-                txtMarca.Text = veiculo.Marca; 
+                txtMarca.Text = veiculo.Marca;
 
-                
+                txtResposta.Text = pedidos.Resposta;
                 
                 txtNomeCliente.Text = cliente.Nome;
                 txtData.Text = cliente.DataNascimento.ToString();
                 
 
-                //txtModelo.Text = Global.ConsultarModelo().ToString();
                 txtOcorrencia.Text = pedidos.Ocorrencia;
                 txtNumeroPedido.Text = pedidos.PedidoId.ToString();
 
@@ -54,7 +54,6 @@ namespace ProjetoMecanico
             catch (Exception ex)
             {
                 MessageBox.Show("Erro--> " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
             }
             
         }
@@ -67,6 +66,11 @@ namespace ProjetoMecanico
         {
             frmAtendimentoPedidos frm = new frmAtendimentoPedidos();
             frm.Size = new Size(549, 605);
+
+            btnEncerrarOcorrencia.Enabled = true;
+            btnCancelarOcorrencia.Enabled = true;
+            btnResponderOcorrencia.Enabled = false;
+            btnFechar.Enabled = false;      
            
 
         }
@@ -74,20 +78,55 @@ namespace ProjetoMecanico
         private void frmAtendimentoPedidos_Load(object sender, EventArgs e)
         {
             PreencherPedido();
+            if (txtResposta.Text != string.Empty)
+            {
+                btnResponderOcorrencia.Enabled = false;
+                btnCancelarOcorrencia.Enabled = false;
+                btnEncerrarOcorrencia.Enabled = false;
+                btnFechar.Enabled = true;
+                txtResposta.Enabled = false;
+            }
         }
 
         private void btnEncerrarOcorrencia_Click(object sender, EventArgs e)
         {
-            if(txtResposta.Text!= string.Empty)
+            if(txtResposta.Text== string.Empty)
             {
                 MessageBox.Show("Erro de Preenchimento", "Campo Resposta vazio!", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            pedidos.Ocorrencia = txtOcorrencia.Text;
-            pedidos.SituacaoId = 2;
-            pedidos.Gravar();
-            Usuario u = new Usuario();
-            Global.EnviarEmailOcorrencia(u.Email, pedidos.Ocorrencia, pedidos.PedidoId.ToString());
+            try
+            {
+                pedidos.PedidoId = Convert.ToInt32(txtNumeroPedido.Text);
+                pedidos.Consultar();
+
+                cliente.ClienteId = pedidos.ClienteId;
+                cliente.Consultar();
+
+                usuario.UsuarioId = cliente.UsuarioId;
+                usuario.Consultar();
+
+                pedidos.Resposta = txtResposta.Text;
+                pedidos.SituacaoId = 2;
+                pedidos.Gravar();
+
+                
+                Global.EnviarEmailOcorrencia(usuario.Email, pedidos.Resposta, pedidos.PedidoId.ToString());
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro--> " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            MessageBox.Show("Atendimento de Pedidos", "Ocorrência Encerrada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+
+            btnResponderOcorrencia.Enabled = false;
+            btnCancelarOcorrencia.Enabled = false;
+            btnEncerrarOcorrencia.Enabled = false;
+            btnFechar.Enabled = true;
+            txtResposta.Enabled = false;
+
 
 
         }

@@ -84,9 +84,14 @@ namespace ProjetoMecanico
 
         private void grdPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            pedidos.PedidoId = Convert.ToInt32(grdPedidos.SelectedRows[0].Cells[0].Value);
+            
+            Global.NumeroPedido = pedidos.PedidoId;
             frmAtendimentoPedidos frm = new frmAtendimentoPedidos();
             //frm.txtNumeroPedido.Text = grdPedidos.SelectedRows[0].Cells[0].Value.ToString();
             frm.ShowDialog();
+            
+
         }
 
 
@@ -98,13 +103,14 @@ namespace ProjetoMecanico
 
         private void txtPesquisar_TextChanged(object sender, EventArgs e)
         {
-           if (rdbPedido.Checked && txtPesquisar.Text.Length>0)
-            {                
-                pedidos.PedidoId =Convert.ToInt16(txtPesquisar.Text);
-                CarregarGrid();
-                           
-            }
-                
+            PreencherPedidos();
+             if (rdbPedido.Checked && txtPesquisar.Text.Length>0)
+              {                
+                  pedidos.PedidoId =Convert.ToInt32(txtPesquisar.Text);
+                  CarregarGrid();                           
+              }
+
+
         }
 
         private void cboSituacao_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,6 +129,16 @@ namespace ProjetoMecanico
             {
                 e.Handled = true;
             }
+        }
+
+        private void rdbNome_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grdPedidos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

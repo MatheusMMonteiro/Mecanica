@@ -98,24 +98,24 @@ namespace ProjetoMecanico
                 {
                     if (PedidoId == 0)
                     {
-                        sql = "insert into tblPedido (DataPedido, Ocorrencia, Imagem, Resposta, VeiculoId, SituacaoId) \n";
-                        sql += "values(@Data, @Ocorrencia, @Imagem, @Resposta, @VeiculoId, @SituacaoId) select @@identity \n";
+                        sql = "insert into tblPedido (DataPedido, Ocorrencia, Resposta, VeiculoId, SituacaoId) \n";
+                        sql += "values(@Data, @Ocorrencia, @Resposta, @VeiculoId, @SituacaoId) select @@identity \n";
                     }
                     else
                     {
                         sql = "update tblPedido set \n";
                         sql += "DataPedido = @DataPedido,";
                         sql += "Ocorrencia = @Ocorrencia,";
-                        sql += "Imagem = @Imagem,";
+                       // sql += "Imagem = @Imagem,";
                         sql += "Resposta = @Resposta,";
                         sql +="VeiculoId = @VeiculoId,";
-                        sql += "SituacaoId = @SituacaoId";
+                        sql += "SituacaoId = @SituacaoId \n";
                         sql += "where PedidoId = @PedidoId";
                         variaveis.Add(new SqlParameter("@PedidoId", PedidoId));
                     }
                     variaveis.Add(new SqlParameter("@DataPedido", DataPedido));
                     variaveis.Add(new SqlParameter("@Ocorrencia", Ocorrencia));
-                    variaveis.Add(new SqlParameter("@Imagem", Imagem));
+                   // variaveis.Add(new SqlParameter("@Imagem", Imagem));
                     variaveis.Add(new SqlParameter("@Resposta",Resposta));
                     variaveis.Add(new SqlParameter("@VeiculoId",VeiculoId));
                     variaveis.Add(new SqlParameter("@SituacaoId", SituacaoId));

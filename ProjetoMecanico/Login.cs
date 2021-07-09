@@ -69,6 +69,7 @@ namespace ProjetoMecanico
                         frmPedidos frm = new frmPedidos();
                         frm.ShowDialog();
                     }
+                    this.Close();
                 }
                 else
                 {
@@ -88,8 +89,6 @@ namespace ProjetoMecanico
                     MessageBoxIcon.Error);
             }
         }
-
-
         private void btnEsqueceuSenha_Click(object sender, EventArgs e)
         {
             if (txtUsuario.Text != string.Empty)
