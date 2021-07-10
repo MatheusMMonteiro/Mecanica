@@ -17,6 +17,7 @@ namespace ProjetoMecanico
     public static class Global
 
     {
+        public static string NomeFuncionario = string.Empty;
         public static int NumeroPedido = 0;
         public static string NomeUsuario = string.Empty;
         public static int UsuarioLogadoId = 0;
@@ -95,12 +96,14 @@ namespace ProjetoMecanico
 
         public static void EnviarEmailOcorrencia(string EnderecoEmail, string Resposta, string Pedido)
         {
+            string Funcionario = UsuarioLogadoNome;
             MailMessage email = new MailMessage();
             email.From = new MailAddress("atendimento.mecanicatresirmaos@gmail.com");
             email.To.Add(EnderecoEmail);
 
             email.Subject = "CENTRAL DE ATENDIMENTO - Mecânica Três Irmãos";
-            email.Body = Resposta+ "\br Seu Pedido gerou um Protocolo: #"+Pedido;
+            email.Body = Resposta+ "\n\n\nSeu Pedido gerou um Protocolo: #" + Pedido +
+                "\n\n Atenciosamente, "+ Funcionario;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false;

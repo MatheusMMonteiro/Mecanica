@@ -31,7 +31,6 @@ namespace ProjetoMecanico
         {
             this.grpDadosPesquisa = new System.Windows.Forms.GroupBox();
             this.grdPesquisa = new System.Windows.Forms.DataGridView();
-            this.rdbUsuario = new System.Windows.Forms.RadioButton();
             this.rdbNome = new System.Windows.Forms.RadioButton();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@ namespace ProjetoMecanico
             // grpDadosPesquisa
             // 
             this.grpDadosPesquisa.Controls.Add(this.grdPesquisa);
-            this.grpDadosPesquisa.Controls.Add(this.rdbUsuario);
             this.grpDadosPesquisa.Controls.Add(this.rdbNome);
             this.grpDadosPesquisa.Controls.Add(this.txtPesquisa);
             this.grpDadosPesquisa.Controls.Add(this.lblPesquisar);
@@ -88,21 +86,11 @@ namespace ProjetoMecanico
             this.grdPesquisa.TabIndex = 4;
             this.grdPesquisa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPesquisa_CellContentClick);
             // 
-            // rdbUsuario
-            // 
-            this.rdbUsuario.AutoSize = true;
-            this.rdbUsuario.Location = new System.Drawing.Point(425, 22);
-            this.rdbUsuario.Name = "rdbUsuario";
-            this.rdbUsuario.Size = new System.Drawing.Size(61, 17);
-            this.rdbUsuario.TabIndex = 3;
-            this.rdbUsuario.Text = "Usuário";
-            this.rdbUsuario.UseVisualStyleBackColor = true;
-            // 
             // rdbNome
             // 
             this.rdbNome.AutoSize = true;
             this.rdbNome.Checked = true;
-            this.rdbNome.Location = new System.Drawing.Point(366, 22);
+            this.rdbNome.Location = new System.Drawing.Point(418, 19);
             this.rdbNome.Name = "rdbNome";
             this.rdbNome.Size = new System.Drawing.Size(53, 17);
             this.rdbNome.TabIndex = 2;
@@ -115,14 +103,14 @@ namespace ProjetoMecanico
             // 
             this.txtPesquisa.Location = new System.Drawing.Point(65, 19);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(286, 20);
+            this.txtPesquisa.Size = new System.Drawing.Size(336, 20);
             this.txtPesquisa.TabIndex = 1;
             this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
             // lblPesquisar
             // 
             this.lblPesquisar.AutoSize = true;
-            this.lblPesquisar.Location = new System.Drawing.Point(6, 26);
+            this.lblPesquisar.Location = new System.Drawing.Point(7, 23);
             this.lblPesquisar.Name = "lblPesquisar";
             this.lblPesquisar.Size = new System.Drawing.Size(53, 13);
             this.lblPesquisar.TabIndex = 0;
@@ -188,7 +176,7 @@ namespace ProjetoMecanico
             this.cboPerfil.FormattingEnabled = true;
             this.cboPerfil.Location = new System.Drawing.Point(51, 173);
             this.cboPerfil.Name = "cboPerfil";
-            this.cboPerfil.Size = new System.Drawing.Size(300, 21);
+            this.cboPerfil.Size = new System.Drawing.Size(139, 21);
             this.cboPerfil.TabIndex = 11;
             // 
             // txtEmail
@@ -204,6 +192,7 @@ namespace ProjetoMecanico
             this.txtConfirmar.Name = "txtConfirmar";
             this.txtConfirmar.Size = new System.Drawing.Size(254, 20);
             this.txtConfirmar.TabIndex = 9;
+            this.txtConfirmar.UseSystemPasswordChar = true;
             // 
             // txtSenha
             // 
@@ -211,6 +200,7 @@ namespace ProjetoMecanico
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(300, 20);
             this.txtSenha.TabIndex = 8;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
@@ -229,7 +219,7 @@ namespace ProjetoMecanico
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(6, 154);
+            this.lblEmail.Location = new System.Drawing.Point(10, 150);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(32, 13);
             this.lblEmail.TabIndex = 5;
@@ -238,7 +228,7 @@ namespace ProjetoMecanico
             // lblPerfil
             // 
             this.lblPerfil.AutoSize = true;
-            this.lblPerfil.Location = new System.Drawing.Point(7, 181);
+            this.lblPerfil.Location = new System.Drawing.Point(15, 176);
             this.lblPerfil.Name = "lblPerfil";
             this.lblPerfil.Size = new System.Drawing.Size(30, 13);
             this.lblPerfil.TabIndex = 4;
@@ -256,7 +246,7 @@ namespace ProjetoMecanico
             // lblSenha
             // 
             this.lblSenha.AutoSize = true;
-            this.lblSenha.Location = new System.Drawing.Point(7, 98);
+            this.lblSenha.Location = new System.Drawing.Point(10, 94);
             this.lblSenha.Name = "lblSenha";
             this.lblSenha.Size = new System.Drawing.Size(38, 13);
             this.lblSenha.TabIndex = 2;
@@ -265,7 +255,7 @@ namespace ProjetoMecanico
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(6, 68);
+            this.lblUsuario.Location = new System.Drawing.Point(6, 64);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(43, 13);
             this.lblUsuario.TabIndex = 1;
@@ -274,7 +264,7 @@ namespace ProjetoMecanico
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(7, 37);
+            this.lblNome.Location = new System.Drawing.Point(10, 33);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(35, 13);
             this.lblNome.TabIndex = 0;
@@ -355,7 +345,6 @@ namespace ProjetoMecanico
         private System.Windows.Forms.GroupBox grpDadosPesquisa;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.RadioButton rdbUsuario;
         private System.Windows.Forms.RadioButton rdbNome;
         private System.Windows.Forms.DataGridView grdPesquisa;
         private System.Windows.Forms.GroupBox grpDadosCadastro;

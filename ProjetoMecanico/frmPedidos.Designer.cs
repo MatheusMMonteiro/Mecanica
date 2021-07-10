@@ -33,7 +33,6 @@ namespace ProjetoMecanico
             this.cboSituacao = new System.Windows.Forms.ComboBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.txtPesquisar = new System.Windows.Forms.TextBox();
-            this.rdbNome = new System.Windows.Forms.RadioButton();
             this.rdbPedido = new System.Windows.Forms.RadioButton();
             this.grdPedidos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.grdPedidos)).BeginInit();
@@ -75,29 +74,15 @@ namespace ProjetoMecanico
             this.txtPesquisar.TextChanged += new System.EventHandler(this.txtPesquisar_TextChanged);
             this.txtPesquisar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPesquisar_KeyPress);
             // 
-            // rdbNome
-            // 
-            this.rdbNome.AutoSize = true;
-            this.rdbNome.Checked = true;
-            this.rdbNome.Location = new System.Drawing.Point(231, 55);
-            this.rdbNome.Name = "rdbNome";
-            this.rdbNome.Size = new System.Drawing.Size(53, 17);
-            this.rdbNome.TabIndex = 4;
-            this.rdbNome.TabStop = true;
-            this.rdbNome.Text = "Nome";
-            this.rdbNome.UseVisualStyleBackColor = true;
-            this.rdbNome.CheckedChanged += new System.EventHandler(this.rdbNome_CheckedChanged);
-            // 
             // rdbPedido
             // 
             this.rdbPedido.AutoSize = true;
-            this.rdbPedido.Location = new System.Drawing.Point(290, 55);
+            this.rdbPedido.Location = new System.Drawing.Point(234, 55);
             this.rdbPedido.Name = "rdbPedido";
             this.rdbPedido.Size = new System.Drawing.Size(58, 17);
             this.rdbPedido.TabIndex = 5;
             this.rdbPedido.Text = "Pedido";
             this.rdbPedido.UseVisualStyleBackColor = true;
-            this.rdbPedido.CheckedChanged += new System.EventHandler(this.rdbPedido_CheckedChanged);
             // 
             // grdPedidos
             // 
@@ -112,9 +97,8 @@ namespace ProjetoMecanico
             this.grdPedidos.ReadOnly = true;
             this.grdPedidos.RowHeadersVisible = false;
             this.grdPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grdPedidos.Size = new System.Drawing.Size(331, 351);
+            this.grdPedidos.Size = new System.Drawing.Size(285, 331);
             this.grdPedidos.TabIndex = 6;
-            this.grdPedidos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPedidos_CellContentClick);
             this.grdPedidos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPedidos_CellDoubleClick);
             // 
             // frmPedidos
@@ -122,14 +106,14 @@ namespace ProjetoMecanico
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(358, 449);
+            this.ClientSize = new System.Drawing.Size(312, 429);
             this.Controls.Add(this.grdPedidos);
             this.Controls.Add(this.rdbPedido);
-            this.Controls.Add(this.rdbNome);
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.lblPesquisar);
             this.Controls.Add(this.cboSituacao);
             this.Controls.Add(this.lblSituacao);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmPedidos";
@@ -147,7 +131,6 @@ namespace ProjetoMecanico
         private System.Windows.Forms.ComboBox cboSituacao;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.TextBox txtPesquisar;
-        private System.Windows.Forms.RadioButton rdbNome;
         private System.Windows.Forms.RadioButton rdbPedido;
         private System.Windows.Forms.DataGridView grdPedidos;
     }

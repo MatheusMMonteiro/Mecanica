@@ -68,3 +68,4 @@ C:\Users\matheus.marsantos\Desktop\ProjetoMecanica\Mecanica\ProjetoMecanico\obj\
 C:\Users\matheus.marsantos\Desktop\ProjetoMecanica\Mecanica\ProjetoMecanico\obj\Debug\ProjetoMecanico.csproj.CoreCompileInputs.cache
 C:\Users\matheus.marsantos\Desktop\ProjetoMecanica\Mecanica\ProjetoMecanico\obj\Debug\ProjetoMecanico.exe
 C:\Users\matheus.marsantos\Desktop\ProjetoMecanica\Mecanica\ProjetoMecanico\obj\Debug\ProjetoMecanico.pdb
+C:\Users\matheus.marsantos\Desktop\ProjetoMecanica\Mecanica\ProjetoMecanico\obj\Debug\ProjetoMecanico.Form1.resources

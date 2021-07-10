@@ -32,7 +32,7 @@ namespace ProjetoMecanico
                 if (txtUsuario.Text == string.Empty)
                 {
                     mensagemErro += "Preencha o campo usuário.\n";
-                }               
+                }
 
                 if (txtSenha.Text == string.Empty)
                 {
@@ -40,7 +40,15 @@ namespace ProjetoMecanico
                 }
                 else if (txtSenha.Text != txtConfirmar.Text)
                 {
-                    mensagemErro += "Confirmação da senha não confere.";
+                    mensagemErro += "Confirmação da senha não confere.\n";
+                }
+                if (txtEmail.Text == string.Empty)
+                {
+                    mensagemErro += "Preencha o campo E-mail!\n";
+                }
+                if (cboPerfil.SelectedIndex == -1)
+                {
+                    mensagemErro += "Preencha o campo Perfil";
                 }
                 if (mensagemErro != string.Empty)
                 {
@@ -55,8 +63,8 @@ namespace ProjetoMecanico
             }
             return mensagemErro == string.Empty;
         }
-        
-        
+
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
             if (!ValidarPreenchimento())
@@ -65,10 +73,10 @@ namespace ProjetoMecanico
             }
             try
             {
-                Usuario usuario = new Usuario();                       
+                Usuario usuario = new Usuario();
                 usuario.Nome = txtNome.Text;
                 usuario.Usr = txtUsuario.Text;
-                
+
                 if (rdbAtivo.Checked)
                 {
                     usuario.Ativo = true;
@@ -83,6 +91,7 @@ namespace ProjetoMecanico
                 }
                 usuario.Email = txtEmail.Text;
                 usuario.PerfilId = Convert.ToInt32(cboPerfil.SelectedValue);
+                usuario.Consultar();
 
                 usuario.Gravar();
                 MessageBox.Show("Usuário gravado com sucesso.", "Cadastro de usuários",
@@ -112,7 +121,7 @@ namespace ProjetoMecanico
             }
         }
 
-       private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -120,7 +129,7 @@ namespace ProjetoMecanico
         {
             try
             {
-                usuario.UsuarioId = cliente.UsuarioId;
+                //usuario.UsuarioId = cliente.UsuarioId;
                 grdPesquisa.DataSource = usuario.Consultar();
 
                 foreach (DataGridViewColumn c in grdPesquisa.Columns)
@@ -129,13 +138,11 @@ namespace ProjetoMecanico
                 }
                 grdPesquisa.Columns[1].Visible = true;
                 grdPesquisa.Columns[2].Visible = true;
-                grdPesquisa.Columns[3].Visible = true;
-                grdPesquisa.Columns[6].Visible = true;
 
-                grdPesquisa.Columns[1].Width = 100;
-                grdPesquisa.Columns[2].Width = 200;
-                grdPesquisa.Columns[3].Width = 100;
-                grdPesquisa.Columns[6].Width = 74;
+                grdPesquisa.Columns[1].Width = 237;
+                grdPesquisa.Columns[2].Width = 230;
+
+
             }
             catch (Exception ex)
             {
@@ -145,17 +152,17 @@ namespace ProjetoMecanico
         }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
-           txtPesquisa.Clear();
-           txtNome.Clear();
-           txtUsuario.Clear();
-           txtSenha.Clear();
-           txtConfirmar.Clear();
-           txtEmail.Clear();
-           cboPerfil.SelectedIndex = -1;
-           rdbAtivo.Checked = true;
-           
-           txtPesquisa.Focus();
-           CarregarGrid();           
+            txtPesquisa.Clear();
+            txtNome.Clear();
+            txtUsuario.Clear();
+            txtSenha.Clear();
+            txtConfirmar.Clear();
+            txtEmail.Clear();
+            cboPerfil.SelectedIndex = -1;
+            rdbAtivo.Checked = true;
+            usuario = new Usuario();
+            txtPesquisa.Focus();
+            CarregarGrid();
         }
 
         private void grdPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -168,8 +175,11 @@ namespace ProjetoMecanico
 
                 txtNome.Text = usuario.Nome;
                 txtUsuario.Text = usuario.Usr;
-                txtSenha.Text =  usuario.Senha;
+                txtSenha.Text = usuario.Senha;
                 txtConfirmar.Text = usuario.Senha;
+                txtEmail.Text = usuario.Email;
+
+                cboPerfil.SelectedIndex = usuario.PerfilId;
                 if (usuario.Ativo)
                 {
                     rdbAtivo.Checked = true;
@@ -188,29 +198,27 @@ namespace ProjetoMecanico
 
         private void frmCadastro_Load(object sender, EventArgs e)
         {
-            usuario = new Usuario();
+            //usuario = new Usuario();
             CarregarPerfil();
             CarregarGrid();
         }
 
         private void rbdNome_CheckedChanged(object sender, EventArgs e)
         {
-
+            txtPesquisa.Clear();
+            txtPesquisa.Focus();
         }
 
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             usuario = new Usuario();
-            if (rdbUsuario.Checked)
-            {
-                usuario.Nome = txtPesquisa.Text;
-                CarregarGrid();
-            }
-            else if (rdbNome.Checked)
+            if (rdbNome.Checked)
             {
                 usuario.Nome = txtPesquisa.Text;
                 CarregarGrid();
             }
         }
+
+       
     }
 }

@@ -118,7 +118,7 @@ namespace ProjetoMecanico
             {
                 MessageBox.Show("Erro--> " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Atendimento de Pedidos", "Ocorrência Encerrada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Ocorrência Encerrada com sucesso!", "Atendimento de Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             return;
 
             btnResponderOcorrencia.Enabled = false;
