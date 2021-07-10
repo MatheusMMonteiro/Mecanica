@@ -72,9 +72,9 @@ Situacao varchar (100)
 create table tblPedido (
 PedidoId int identity primary key,
 DataPedido date,
-Ocorrencia varchar (100),
+Ocorrencia varchar (8000),
 Imagem image,
-Resposta varchar (4000),
+Resposta varchar (8000),
 VeiculoId int foreign key (VeiculoId) references tblVeiculo,
 SituacaoId int foreign key (SituacaoId) references tblSituacao,
 ClienteId int foreign key (ClienteId) references tblCliente
