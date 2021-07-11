@@ -62,7 +62,6 @@ namespace ProjetoMecanico
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(166, 20);
             this.txtUsuario.TabIndex = 2;
-            this.txtUsuario.Text = "matheus";
             // 
             // txtSenha
             // 
@@ -70,7 +69,6 @@ namespace ProjetoMecanico
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(166, 20);
             this.txtSenha.TabIndex = 3;
-            this.txtSenha.Text = "123";
             this.txtSenha.UseSystemPasswordChar = true;
             // 
             // btnEsqueceuSenha
@@ -134,6 +132,7 @@ namespace ProjetoMecanico
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             this.ResumeLayout(false);

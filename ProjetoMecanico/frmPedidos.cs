@@ -23,7 +23,7 @@ namespace ProjetoMecanico
                 cboSituacao.DataSource = Global.ConsultarSituacao();
                 cboSituacao.DisplayMember = "Situacao";
                 cboSituacao.ValueMember = "SituacaoId";
-                cboSituacao.SelectedIndex = 0;
+                cboSituacao.SelectedIndex = 1;
             }
             catch (Exception ex)
             {
@@ -72,7 +72,7 @@ namespace ProjetoMecanico
 
                     grdPedidos.Columns[0].Width = 60;
                     grdPedidos.Columns[1].Width = 90;
-                    grdPedidos.Columns[2].Width = 178;
+                    grdPedidos.Columns[2].Width = 132;
                 }
 
             }
@@ -83,15 +83,7 @@ namespace ProjetoMecanico
             }
         }
 
-        private void grdPedidos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            pedidos.PedidoId = Convert.ToInt32(grdPedidos.SelectedRows[0].Cells[0].Value);
-
-            Global.NumeroPedido = pedidos.PedidoId;
-            frmAtendimentoPedidos frm = new frmAtendimentoPedidos();
-            //frm.txtNumeroPedido.Text = grdPedidos.SelectedRows[0].Cells[0].Value.ToString();
-            frm.ShowDialog();
-        }
+        
 
 
         private void frmPedidos_Load(object sender, EventArgs e)
@@ -99,38 +91,22 @@ namespace ProjetoMecanico
             CarregarSituacao();
             Pedidos pedidos = new Pedidos();
         }
-
-        private void txtPesquisar_TextChanged(object sender, EventArgs e)
-        {
-            PreencherPedidos();
-             if (rdbPedido.Checked && txtPesquisar.Text.Length==1)
-              {                
-                  pedidos.PedidoId =Convert.ToInt32(txtPesquisar.Text);
-                  CarregarGrid();                           
-              }
-          else
-            {
-                return;
-            }
-            
-
-        }
-
+                
         private void cboSituacao_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             CarregarGrid();
         }
-
-
-
-        private void txtPesquisar_KeyPress(object sender, KeyPressEventArgs e)
+        
+        private void grdPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
+            pedidos.PedidoId = Convert.ToInt32(grdPedidos.SelectedRows[0].Cells[0].Value);
 
+            Global.NumeroPedido = pedidos.PedidoId;
+            frmAtendimentoPedidos frm = new frmAtendimentoPedidos();
+            //frm.txtNumeroPedido.Text = grdPedidos.SelectedRows[0].Cells[0].Value.ToString();
+            frm.ShowDialog();
+            pedidos = new Pedidos();
+
+        }
     }
 }

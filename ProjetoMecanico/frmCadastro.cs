@@ -74,8 +74,10 @@ namespace ProjetoMecanico
             try
             {
                 Usuario usuario = new Usuario();
-                usuario.Nome = txtNome.Text;
                 usuario.Usr = txtUsuario.Text;
+                usuario.Consultar();
+                usuario.Nome = txtNome.Text;
+                
 
                 if (rdbAtivo.Checked)
                 {
@@ -91,9 +93,10 @@ namespace ProjetoMecanico
                 }
                 usuario.Email = txtEmail.Text;
                 usuario.PerfilId = Convert.ToInt32(cboPerfil.SelectedValue);
-                usuario.Consultar();
+                
 
                 usuario.Gravar();
+
                 MessageBox.Show("Usuário gravado com sucesso.", "Cadastro de usuários",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -110,6 +113,22 @@ namespace ProjetoMecanico
             try
             {
                 cboPerfil.DataSource = Global.ConsultarPerfil();
+                cboPerfil.DisplayMember = "Perfil";
+                cboPerfil.ValueMember = "PerfilId";
+                cboPerfil.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erro-->" + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void CarregarPerfis(int p)
+        {
+            try
+            {
+                cboPerfil.DataSource = Global.ConsultarPerfis(p);
                 cboPerfil.DisplayMember = "Perfil";
                 cboPerfil.ValueMember = "PerfilId";
                 cboPerfil.SelectedIndex = -1;
@@ -140,7 +159,7 @@ namespace ProjetoMecanico
                 grdPesquisa.Columns[2].Visible = true;
 
                 grdPesquisa.Columns[1].Width = 237;
-                grdPesquisa.Columns[2].Width = 230;
+                grdPesquisa.Columns[2].Width = 237;
 
 
             }
@@ -152,6 +171,7 @@ namespace ProjetoMecanico
         }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
+            txtUsuario.Enabled = true;
             txtPesquisa.Clear();
             txtNome.Clear();
             txtUsuario.Clear();
@@ -163,37 +183,6 @@ namespace ProjetoMecanico
             usuario = new Usuario();
             txtPesquisa.Focus();
             CarregarGrid();
-        }
-
-        private void grdPesquisa_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                usuario = new Usuario();
-                usuario.UsuarioId = Convert.ToInt32(grdPesquisa.SelectedRows[0].Cells[0].Value);
-                usuario.Consultar();
-
-                txtNome.Text = usuario.Nome;
-                txtUsuario.Text = usuario.Usr;
-                txtSenha.Text = usuario.Senha;
-                txtConfirmar.Text = usuario.Senha;
-                txtEmail.Text = usuario.Email;
-
-                cboPerfil.SelectedIndex = usuario.PerfilId;
-                if (usuario.Ativo)
-                {
-                    rdbAtivo.Checked = true;
-                }
-                else
-                {
-                    rdbInativo.Checked = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro--> " + ex.Message, "Cadastro de Usuários",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void frmCadastro_Load(object sender, EventArgs e)
@@ -212,13 +201,48 @@ namespace ProjetoMecanico
         private void txtPesquisa_TextChanged(object sender, EventArgs e)
         {
             usuario = new Usuario();
-            if (rdbNome.Checked)
+
+            usuario.Nome = txtPesquisa.Text;
+            CarregarGrid();
+
+        }
+
+        private void grdPesquisa_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
             {
-                usuario.Nome = txtPesquisa.Text;
-                CarregarGrid();
+                txtUsuario.Enabled = false;
+                cboPerfil.SelectedIndex = -1;
+                usuario = new Usuario();
+                usuario.UsuarioId = Convert.ToInt32(grdPesquisa.SelectedRows[0].Cells[0].Value);
+                usuario.Consultar();
+
+                txtNome.Text = usuario.Nome;
+                txtUsuario.Text = usuario.Usr;
+                txtSenha.Text = usuario.Senha;
+                txtConfirmar.Text = usuario.Senha;
+                txtEmail.Text = usuario.Email;
+
+                cboPerfil.SelectedValue = Global.ConsultarPerfils(usuario.PerfilId);
+                if (usuario.Ativo)
+                {
+                    rdbAtivo.Checked = true;
+                }
+                else
+                {
+                    rdbInativo.Checked = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro--> " + ex.Message, "Cadastro de Usuários",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-       
+        private void cboPerfil_Click(object sender, EventArgs e)
+        {
+            cboPerfil.SelectedIndex = -1;
+        }
     }
 }

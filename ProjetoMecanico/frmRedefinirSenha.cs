@@ -52,7 +52,10 @@ namespace ProjetoMecanico
         }
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            ValidarPreenchimento();
+            if (!ValidarPreenchimento())
+            {
+                return;
+            }
             Usuario usr = new Usuario();
             usr.Usr = txtUsuario.Text;
             usr.Consultar();
@@ -106,7 +109,7 @@ namespace ProjetoMecanico
             string codigo = cod.Codigo;
             Global.EnviarEmailCodigo(email, codigo);
 
-            MessageBox.Show("Código Enviado com Sucesso! \br Verifique seu E-mail!", "Redefinir Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Código Enviado com Sucesso! \nVerifique seu E-mail!", "Redefinir Senha", MessageBoxButtons.OK, MessageBoxIcon.Information);
             txtCodigo.Enabled = true;            
         }
 

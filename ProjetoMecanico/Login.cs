@@ -78,6 +78,7 @@ namespace ProjetoMecanico
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                     txtUsuario.Focus();
+                    return;
                 }
 
             }
@@ -91,13 +92,23 @@ namespace ProjetoMecanico
         }
         private void btnEsqueceuSenha_Click(object sender, EventArgs e)
         {
+
+            Usuario usr = new Usuario();
+            usr.Usr = txtUsuario.Text;
+            usr.Consultar();
+            if (!usr.Autenticar())
+            {
+                MessageBox.Show("Usuario inválido! \nPreencha o campo Usuario", "Erro de Preenchimento", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (txtUsuario.Text != string.Empty)
             {
                 Global.NomeUsuario = txtUsuario.Text;
             }
+            
+
             frmRedefinirSenha frm = new frmRedefinirSenha();
             frm.ShowDialog();
-
 
         }
 

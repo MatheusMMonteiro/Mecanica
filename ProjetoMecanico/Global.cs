@@ -13,7 +13,7 @@ using System.Net;
 
 namespace ProjetoMecanico
 {
-        
+
     public static class Global
 
     {
@@ -55,7 +55,7 @@ namespace ProjetoMecanico
             return Regex.Replace(BitConverter.ToString(
                 byteTamanhoCriptografado), "-", "").ToLower();
         }
-        
+
 
         public static DataTable ConsultarSituacao()
         {
@@ -91,8 +91,51 @@ namespace ProjetoMecanico
             return dataTable;
         }
         
-        
-        
+        public static DataTable ConsultarPerfis(int PerfilId)
+        {
+            DataTable dataTable = new DataTable();
+            AcessoBD acesso = new AcessoBD();
+            List<SqlParameter> variaveis = new List<SqlParameter>();
+            
+            try
+            {
+                string sql = "select PerfilId, Perfil from tblPerfil where PerfilId = @PerfilId \n";
+                variaveis.Add(new SqlParameter("@PerfilId", PerfilId));
+                dataTable = acesso.Consultar(sql, new List<SqlParameter>());
+
+                PerfilId = Convert.ToInt32(dataTable.Rows[0]["PerfilId"]);
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+            return dataTable;
+        }
+        public static int ConsultarPerfils(int PerfilId)
+        {
+            DataTable dataTable = new DataTable();
+            AcessoBD acesso = new AcessoBD();
+            List<SqlParameter> variaveis = new List<SqlParameter>();
+
+            try
+            {
+                string sql = "select PerfilId, Perfil from tblPerfil where PerfilId = @PerfilId \n";
+                variaveis.Add(new SqlParameter("@PerfilId", PerfilId));
+
+                return Convert.ToInt32(acesso.Executar(variaveis, sql));
+
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+
+
 
         public static void EnviarEmailOcorrencia(string EnderecoEmail, string Resposta, string Pedido)
         {
@@ -102,8 +145,8 @@ namespace ProjetoMecanico
             email.To.Add(EnderecoEmail);
 
             email.Subject = "CENTRAL DE ATENDIMENTO - Mecânica Três Irmãos";
-            email.Body = Resposta+ "\n\n\nSeu Pedido gerou um Protocolo: #" + Pedido +
-                "\n\n Atenciosamente, "+ Funcionario;
+            email.Body = Resposta + "\n\n\nSeu Pedido gerou um Protocolo: #" + Pedido +
+                "\n\n Atenciosamente, " + Funcionario;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false;
@@ -119,7 +162,7 @@ namespace ProjetoMecanico
             email.To.Add(EnderecoEmail);
 
             email.Subject = "Recuperação de Senha de Acesso";
-            email.Body = "Seu token de acesso é:"+Codigo;
+            email.Body = "\nSeu token de acesso é: " + Codigo;
 
             SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
             smtp.UseDefaultCredentials = false;

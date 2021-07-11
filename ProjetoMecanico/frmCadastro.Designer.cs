@@ -31,7 +31,6 @@ namespace ProjetoMecanico
         {
             this.grpDadosPesquisa = new System.Windows.Forms.GroupBox();
             this.grdPesquisa = new System.Windows.Forms.DataGridView();
-            this.rdbNome = new System.Windows.Forms.RadioButton();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.lblPesquisar = new System.Windows.Forms.Label();
             this.grpDadosCadastro = new System.Windows.Forms.GroupBox();
@@ -62,7 +61,6 @@ namespace ProjetoMecanico
             // grpDadosPesquisa
             // 
             this.grpDadosPesquisa.Controls.Add(this.grdPesquisa);
-            this.grpDadosPesquisa.Controls.Add(this.rdbNome);
             this.grpDadosPesquisa.Controls.Add(this.txtPesquisa);
             this.grpDadosPesquisa.Controls.Add(this.lblPesquisar);
             this.grpDadosPesquisa.Location = new System.Drawing.Point(13, 13);
@@ -84,26 +82,13 @@ namespace ProjetoMecanico
             this.grdPesquisa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdPesquisa.Size = new System.Drawing.Size(477, 176);
             this.grdPesquisa.TabIndex = 4;
-            this.grdPesquisa.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPesquisa_CellContentClick);
-            // 
-            // rdbNome
-            // 
-            this.rdbNome.AutoSize = true;
-            this.rdbNome.Checked = true;
-            this.rdbNome.Location = new System.Drawing.Point(418, 19);
-            this.rdbNome.Name = "rdbNome";
-            this.rdbNome.Size = new System.Drawing.Size(53, 17);
-            this.rdbNome.TabIndex = 2;
-            this.rdbNome.TabStop = true;
-            this.rdbNome.Text = "Nome";
-            this.rdbNome.UseVisualStyleBackColor = true;
-            this.rdbNome.CheckedChanged += new System.EventHandler(this.rbdNome_CheckedChanged);
+            this.grdPesquisa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPesquisa_CellClick);
             // 
             // txtPesquisa
             // 
             this.txtPesquisa.Location = new System.Drawing.Point(65, 19);
             this.txtPesquisa.Name = "txtPesquisa";
-            this.txtPesquisa.Size = new System.Drawing.Size(336, 20);
+            this.txtPesquisa.Size = new System.Drawing.Size(420, 20);
             this.txtPesquisa.TabIndex = 1;
             this.txtPesquisa.TextChanged += new System.EventHandler(this.txtPesquisa_TextChanged);
             // 
@@ -178,6 +163,7 @@ namespace ProjetoMecanico
             this.cboPerfil.Name = "cboPerfil";
             this.cboPerfil.Size = new System.Drawing.Size(139, 21);
             this.cboPerfil.TabIndex = 11;
+            this.cboPerfil.Click += new System.EventHandler(this.cboPerfil_Click);
             // 
             // txtEmail
             // 
@@ -327,6 +313,7 @@ namespace ProjetoMecanico
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCadastro";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Usuários";
             this.Load += new System.EventHandler(this.frmCadastro_Load);
             this.grpDadosPesquisa.ResumeLayout(false);
@@ -345,7 +332,6 @@ namespace ProjetoMecanico
         private System.Windows.Forms.GroupBox grpDadosPesquisa;
         private System.Windows.Forms.Label lblPesquisar;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.RadioButton rdbNome;
         private System.Windows.Forms.DataGridView grdPesquisa;
         private System.Windows.Forms.GroupBox grpDadosCadastro;
         private System.Windows.Forms.Label lblEmail;

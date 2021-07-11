@@ -166,6 +166,7 @@ namespace ProjetoMecanico
             // 
             this.txtOcorrencia.Enabled = false;
             this.txtOcorrencia.Location = new System.Drawing.Point(6, 19);
+            this.txtOcorrencia.MaxLength = 8000;
             this.txtOcorrencia.Multiline = true;
             this.txtOcorrencia.Name = "txtOcorrencia";
             this.txtOcorrencia.ReadOnly = true;
@@ -194,7 +195,9 @@ namespace ProjetoMecanico
             // 
             // txtResposta
             // 
+            this.txtResposta.Enabled = false;
             this.txtResposta.Location = new System.Drawing.Point(2, 19);
+            this.txtResposta.MaxLength = 8000;
             this.txtResposta.Multiline = true;
             this.txtResposta.Name = "txtResposta";
             this.txtResposta.Size = new System.Drawing.Size(506, 184);
@@ -227,6 +230,7 @@ namespace ProjetoMecanico
             this.btnCancelarOcorrencia.Text = "Cancelar Ocorrência";
             this.btnCancelarOcorrencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelarOcorrencia.UseVisualStyleBackColor = false;
+            this.btnCancelarOcorrencia.Click += new System.EventHandler(this.btnCancelarOcorrencia_Click);
             // 
             // btnEncerrarOcorrencia
             // 
@@ -263,7 +267,7 @@ namespace ProjetoMecanico
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(533, 572);
+            this.ClientSize = new System.Drawing.Size(533, 568);
             this.Controls.Add(this.grpResposta);
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnCancelarOcorrencia);
@@ -275,6 +279,7 @@ namespace ProjetoMecanico
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAtendimentoPedidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Atendimento de Pedidos";
             this.Load += new System.EventHandler(this.frmAtendimentoPedidos_Load);
             this.grpDadosPedidos.ResumeLayout(false);

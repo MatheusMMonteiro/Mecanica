@@ -66,11 +66,13 @@ namespace ProjetoMecanico
         {
             frmAtendimentoPedidos frm = new frmAtendimentoPedidos();
             frm.Size = new Size(549, 605);
+            
 
             btnEncerrarOcorrencia.Enabled = true;
             btnCancelarOcorrencia.Enabled = true;
             btnResponderOcorrencia.Enabled = false;
-            btnFechar.Enabled = false;      
+            btnFechar.Enabled = false;
+            txtResposta.Enabled = true;
            
 
         }
@@ -118,8 +120,6 @@ namespace ProjetoMecanico
             {
                 MessageBox.Show("Erro--> " + ex.Message, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MessageBox.Show("Ocorrência Encerrada com sucesso!", "Atendimento de Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
 
             btnResponderOcorrencia.Enabled = false;
             btnCancelarOcorrencia.Enabled = false;
@@ -127,8 +127,21 @@ namespace ProjetoMecanico
             btnFechar.Enabled = true;
             txtResposta.Enabled = false;
 
+            MessageBox.Show("Ocorrência Encerrada com sucesso!", "Atendimento de Pedidos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return;
 
 
+
+        }
+
+        private void btnCancelarOcorrencia_Click(object sender, EventArgs e)
+        {
+            txtResposta.Clear();
+            txtResposta.Enabled = false;
+            btnCancelarOcorrencia.Enabled = false;
+            btnEncerrarOcorrencia.Enabled = false;
+            btnResponderOcorrencia.Enabled = true;
+            btnFechar.Enabled = true;
         }
     }
 }
