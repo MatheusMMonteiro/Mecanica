@@ -20,7 +20,7 @@ insert into tblPedido
 values
 ('2021-06-06','Pode me dizer. Quais bicos injetores do Kia sefhia slx.
 1.5 ou 1.6 8v  ano 95 .e se da pra por de outros carros. Não consigo achar
-quando acho é muito caro e não da certo. Obrigado', 1, 2, 1)
+quando acho é muito caro e não da certo. Obrigado', 1, 1, 1)
 
 
 
@@ -49,7 +49,7 @@ insert into tblPedido
 values
 ('2021-03-06','Meu carro e direção hidráulica  mas eu sinto ela pessada .
 Reservatorio esta cheio.
-O que pode ser.', 1, 2, 2)
+O que pode ser.', 1, 1, 2)
 
 
 
@@ -76,7 +76,7 @@ insert into tblPedido
 values
 ('2021-04-09','Meu carro faz um barulho muito alto no motor que 
 transmite para dentro da cabine do carro tenho que andar menos de 4000 
-giros ou há mais de 4000 giros para não fazer barulho.', 1, 2, 3)
+giros ou há mais de 4000 giros para não fazer barulho.', 1, 1, 3)
 
 
 
@@ -103,4 +103,17 @@ insert into tblPedido
 values
 ('2021-04-09','Meu carro faz um barulho muito alto no motor que 
 transmite para dentro da cabine do carro tenho que andar menos de 4000 
-giros ou há mais de 4000 giros para não fazer barulho.', 1, 2, 4)
+giros ou há mais de 4000 giros para não fazer barulho.', 1, 1, 4)
+
+
+--> Usuarios
+
+insert into tblUsuario 
+(Nome, Usuario, Senha, Email, Ativo, PerfilId)
+values
+('Matheus Monteiro', 'matheus', '202cb962ac59075b964b07152d234b70', 'projeto123teste@gmail.com',1,1)
+insert into tblUsuario 
+(Nome, Usuario, Senha, Email, Ativo, PerfilId)
+values
+('Joao Pedro', 'joao', '202cb962ac59075b964b07152d234b70', 'projeto123teste@gmail.com',1,2)
+
